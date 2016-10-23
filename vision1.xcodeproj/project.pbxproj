@@ -11,6 +11,7 @@
 		AF20A8231DBD21EC005048D8 /* libopencv_core.2.4.13.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF20A8221DBD21EC005048D8 /* libopencv_core.2.4.13.dylib */; };
 		AF20A8261DBD2243005048D8 /* libopencv_highgui.2.4.13.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF20A8241DBD2243005048D8 /* libopencv_highgui.2.4.13.dylib */; };
 		AF20A8271DBD2243005048D8 /* libopencv_imgproc.2.4.13.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF20A8251DBD2243005048D8 /* libopencv_imgproc.2.4.13.dylib */; };
+		AFD3BF911DBD518300E27C1F /* red-pixel-detection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD3BF901DBD518300E27C1F /* red-pixel-detection.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,7 @@
 		AF20A8221DBD21EC005048D8 /* libopencv_core.2.4.13.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_core.2.4.13.dylib; sourceTree = "<group>"; };
 		AF20A8241DBD2243005048D8 /* libopencv_highgui.2.4.13.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_highgui.2.4.13.dylib; sourceTree = "<group>"; };
 		AF20A8251DBD2243005048D8 /* libopencv_imgproc.2.4.13.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_imgproc.2.4.13.dylib; sourceTree = "<group>"; };
+		AFD3BF901DBD518300E27C1F /* red-pixel-detection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "red-pixel-detection.cpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				AF20A81A1DBD0949005048D8 /* main.cpp */,
+				AFD3BF901DBD518300E27C1F /* red-pixel-detection.cpp */,
 			);
 			path = vision1;
 			sourceTree = "<group>";
@@ -132,6 +135,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFD3BF911DBD518300E27C1F /* red-pixel-detection.cpp in Sources */,
 				AF20A81B1DBD0949005048D8 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +277,7 @@
 				AF20A8201DBD0949005048D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
