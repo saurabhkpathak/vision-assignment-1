@@ -55,10 +55,24 @@ static PerformanceMeasure CompareRecognitionResults( Mat& locations_found, Mat& 
 }
 };
 
+Mat increaseLuminance(Mat image) {
+        Mat luminance_image = Mat::zeros( image.size(), image.type() );
+        /// Do the operation new_image(i,j) = alpha*image(i,j) + beta
+        for( int y = 0; y < image.rows; y++ )
+        { for( int x = 0; x < image.cols; x++ )
+          { for( int c = 0; c < 3; c++ )
+        {
+                luminance_image.at<Vec3b>(y,x)[c] =
+                        saturate_cast<uchar>( 2.0*( image.at<Vec3b>(y,x)[c] ) + 0 );
+        }}}
+        return luminance_image;
+}
+
 //----------------------Black/White Pixel Classification----------------------//
 Mat getBlackWhitePixels(Mat red_hue_image, Mat image) {
         // smoothing the image
         blur( red_hue_image, red_hue_image, Size(3,3) );
+
         Mat canny_output, and_image;
         vector<vector<Point> > contours;
         vector<Vec4i> hierarchy;
@@ -82,29 +96,25 @@ Mat getBlackWhitePixels(Mat red_hue_image, Mat image) {
                         }
                 }
         }
-
         // doing bitwise AND to obtain target section
         bitwise_and(drawing, image, and_image);
         cvtColor(and_image, and_image, CV_RGB2GRAY);
 
         // thresholding to obtain clear Black and White sections
-        threshold(and_image,and_image, 127, 255, THRESH_BINARY);
+        threshold(and_image,and_image, 90, 255, THRESH_BINARY);
         return and_image;
 }
 
 //----------------------Red Pixel Detection----------------------//
 Mat identifyRedPixels(Mat image) {
         medianBlur(image, image, 5);
-        //adaptiveThreshold(image, out_image, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 11, 2);
-        //imshow("out image", out_image);
 
         // declaring varibales to store HSV converted image
         // and red pixel upper, lower hue range
-        Mat hsv_image, lower_red_hue_range, upper_red_hue_range, gray_image;
+        Mat hsv_image, lower_red_hue_range, upper_red_hue_range;
 
         // converting BGR image to HSV
         cvtColor(image, hsv_image, COLOR_BGR2HSV);
-        cvtColor(image, gray_image, CV_RGB2GRAY);
         //imshow("HSV converted image", hsv_image);
 
         // thresholding image as per hue range of red pixels
@@ -138,8 +148,13 @@ int main(int argc, const char** argv) {
                 return -1;
         }
 
+        Mat luminance_image = increaseLuminance(image);
+
         // Applying methods on real images
+        Mat red_luminance_pixels = identifyRedPixels(luminance_image);
         Mat red_pixels = identifyRedPixels(image);
+        addWeighted(red_pixels, 1, red_luminance_pixels, 1, 0.0, red_pixels);
+
         Mat bw_pixels = getBlackWhitePixels(red_pixels, image);
 
         // Applying methods on ground truth images
