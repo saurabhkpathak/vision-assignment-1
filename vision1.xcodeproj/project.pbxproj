@@ -12,6 +12,7 @@
 		AF20A8261DBD2243005048D8 /* libopencv_highgui.2.4.13.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF20A8241DBD2243005048D8 /* libopencv_highgui.2.4.13.dylib */; };
 		AF20A8271DBD2243005048D8 /* libopencv_imgproc.2.4.13.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF20A8251DBD2243005048D8 /* libopencv_imgproc.2.4.13.dylib */; };
 		AFD3BF911DBD518300E27C1F /* red-pixel-detection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD3BF901DBD518300E27C1F /* red-pixel-detection.cpp */; };
+		AFD3BF931DBEBE0F00E27C1F /* libopencv_photo.2.4.13.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD3BF921DBEBE0F00E27C1F /* libopencv_photo.2.4.13.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +34,7 @@
 		AF20A8241DBD2243005048D8 /* libopencv_highgui.2.4.13.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_highgui.2.4.13.dylib; sourceTree = "<group>"; };
 		AF20A8251DBD2243005048D8 /* libopencv_imgproc.2.4.13.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_imgproc.2.4.13.dylib; sourceTree = "<group>"; };
 		AFD3BF901DBD518300E27C1F /* red-pixel-detection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "red-pixel-detection.cpp"; sourceTree = "<group>"; };
+		AFD3BF921DBEBE0F00E27C1F /* libopencv_photo.2.4.13.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_photo.2.4.13.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +43,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF20A8261DBD2243005048D8 /* libopencv_highgui.2.4.13.dylib in Frameworks */,
+				AFD3BF931DBEBE0F00E27C1F /* libopencv_photo.2.4.13.dylib in Frameworks */,
 				AF20A8271DBD2243005048D8 /* libopencv_imgproc.2.4.13.dylib in Frameworks */,
 				AF20A8231DBD21EC005048D8 /* libopencv_core.2.4.13.dylib in Frameworks */,
 			);
@@ -52,6 +55,7 @@
 		AF20A80E1DBD0948005048D8 = {
 			isa = PBXGroup;
 			children = (
+				AFD3BF921DBEBE0F00E27C1F /* libopencv_photo.2.4.13.dylib */,
 				AF20A8241DBD2243005048D8 /* libopencv_highgui.2.4.13.dylib */,
 				AF20A8251DBD2243005048D8 /* libopencv_imgproc.2.4.13.dylib */,
 				AF20A8221DBD21EC005048D8 /* libopencv_core.2.4.13.dylib */,
